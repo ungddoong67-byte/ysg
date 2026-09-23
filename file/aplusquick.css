@@ -1,0 +1,374 @@
+@font-face {
+  font-family: 'Godo-M';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'),
+       url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 1. HTML 및 BODY 기본 폰트를 Pretendard로 변경 */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+  font-family: 'Pretendard', sans-serif;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 2. 스크롤 스냅 컨테이너 */
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll !important;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.container::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* 풀페이지 섹션 공통 스타일 (1 ~ 6번) */
+.section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* 1번 섹션에만 Godo-M 폰트 단독 적용 */
+.section:first-child,
+#section1 {
+  font-family: 'Godo-M', 'Pretendard', sans-serif;
+}
+
+/* PC 세션1 글자 위치: 위에서 250px, 왼쪽 정렬 */
+.section:first-child .content,
+#section1 .content {
+  top: 250px;
+  left: 10%;
+  transform: none;
+  text-align: left;
+  width: auto;
+  max-width: 80%;
+}
+
+.section-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: high-quality;
+  transform: translateZ(0);
+  filter: contrast(105%) brightness(102%);
+}
+
+.content {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+}
+
+.content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: none;
+  line-height: 1.2;
+}
+
+.content p {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  opacity: 0.95;
+  color: #ffffff;
+  text-shadow: none;
+  line-height: 1.35;
+}
+
+/* -------------------------------------------------------------
+   [7번째 일반 페이지 전용 스타일]
+------------------------------------------------------------- */
+.section-normal {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  background-color: #111111;
+  color: #ffffff;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.normal-content {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.normal-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.normal-content p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+.info-box {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-align: left;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.info-box p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #eeeeee;
+  line-height: 1.4;
+}
+
+.info-box p strong {
+  color: #3578E5;
+}
+
+/* -------------------------------------------------------------
+   [검정 배경 / 흰색 글씨 푸터 스타일]
+------------------------------------------------------------- */
+.site-footer { 
+  background-color: #000000; 
+  color: #ffffff; 
+  padding: 40px 20px; 
+  font-size: 14px; 
+  line-height: 1.5; 
+  margin-top: 50px; 
+  border-top: 1px solid #222222; 
+  width: 100%;
+}
+
+.footer-container { 
+  max-width: 800px; 
+  margin: 0 auto; 
+}
+
+.footer-info p { 
+  margin: 3px 0; 
+  color: #dddddd; 
+}
+
+.footer-company { 
+  font-size: 16px; 
+  font-weight: bold; 
+  color: #ffffff !important; 
+  margin-bottom: 8px !important; 
+}
+
+.footer-tel { 
+  color: #ffffff; 
+  font-weight: bold; 
+  text-decoration: none; 
+}
+
+.footer-tel:hover { 
+  text-decoration: underline; 
+}
+
+.footer-link { 
+  color: #cccccc; 
+  text-decoration: none; 
+}
+
+.footer-link:hover { 
+  text-decoration: underline; 
+}
+
+.footer-copyright { 
+  margin-top: 20px; 
+  padding-top: 15px; 
+  border-top: 1px solid #222222; 
+  font-size: 12px; 
+  color: #888888; 
+  line-height: 1.4;
+}
+
+/* 모바일 상단 고정 2구 버튼 스타일 */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+}
+
+.mobile-bottom-nav a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* 전화 버튼: 배경색 #47C83E, 글자색 검정 */
+.mobile-bottom-nav .btn-call {
+  background-color: #47C83E;
+  color: #000000 !important;
+}
+
+.mobile-bottom-nav .btn-kakao {
+  background-color: #FEE500;
+  color: #000000 !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+  }
+
+  /* 모바일 환경 세션1 글자 위치: top 124px */
+  .section:first-child .content,
+  #section1 .content {
+    top: 125px !important;
+    left: 24px !important;
+    max-width: calc(100% - 40px) !important;
+  }
+
+  .content {
+    top: 80px !important;
+    left: 20px !important;
+    right: auto !important;
+    transform: none !important;
+    text-align: left !important;
+    width: calc(100% - 40px) !important;
+    z-index: 999 !important;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    text-shadow: none;
+  }
+
+  .content p {
+    font-size: 1rem;
+    margin-top: 8px;
+    line-height: 1.35;
+    text-shadow: none;
+  }
+
+  .section-normal {
+    padding-top: 90px;
+  }
+
+  .normal-content h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* 1. html, body 높이 고정 및 터치 바운스 방지 */
+html, body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh; /* iOS 주소창 변화에 동적으로 대응 */
+  overflow: hidden !important;
+  font-family: 'Pretendard', sans-serif;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* 2. 스크롤 스냅 컨테이너 아이폰 대응 */
+.container {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* iOS 주소창 변화 대응 */
+  overflow-y: scroll !important;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS 터치 관성 스크롤 및 스냅 활성화 */
+
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* 3. 섹션 높이 대응 */
+.section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* iOS 필수 */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  overflow: hidden;
+}
